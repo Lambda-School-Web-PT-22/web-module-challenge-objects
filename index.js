@@ -4,14 +4,7 @@ const latte = { name: 'Cafe Latte', price: 4, category: 'Drinks' };
 const burger = {
   name: 'Burger',
   price: 18,
-  category: 'Lunch',
-  discount: function (customer) {
-    if (customer === 'teacher' || customer === 'student') {
-      return (this.price *= 0.75);
-    } else if (customer === 'public') {
-      return (this.price *= 0.9);
-    }
-  },
+  category: 'Lunch'
 };
 const breakfastBurrito = {
   name: 'Breakfast Burrito',
@@ -28,7 +21,7 @@ function createMenuItem(name, cost, category) {
 
 /* Task 1b: use your function to create 3 more menu items. You may add any items to the menu that you'd like */
 
-const inAndOut = createMenuItem('Doublle Double', 1200, 'Dinner');
+const inAndOut = createMenuItem('Double-Double', 1200, 'Dinner');
 const hotDog = createMenuItem('Hot Dog', 200, 'Lunch');
 const salad = createMenuItem('Salad', 900, 'Dinner');
 
@@ -41,6 +34,18 @@ Your method should accept:
 and should return a number. 
 
 For example, burger.discount("teacher") would return 13.5 and burger.discount("public") would return 16.2*/
+
+burger.discount = function (customer) {
+    if (customer === 'teacher') {
+      return 18-(18*0.25)
+    }
+    else if (customer === 'student'){
+      return 18-(18*0.25)
+    }
+    else {
+      return 18-(18*0.25)
+    }
+}
 
 console.log(burger.discount('teacher'));
 
